@@ -1,4 +1,4 @@
-@baseURL = http://localhost:5000
+@baseURL = http://localhost:3000
 @email = darth.vader@gmail.com
 @password = anakin
 @id = fae0fb30-c6ec-11e8-9bd5-e358ca4b1f07
