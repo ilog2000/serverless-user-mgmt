@@ -1,11 +1,8 @@
 import css from 'rollup-plugin-css-only';
-// import css from 'rollup-plugin-css-bundle';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-
-const production = !process.env.ROLLUP_WATCH;
 
 export default {
 	input: 'client/index.js',	
@@ -32,6 +29,6 @@ export default {
 			babelrc: false,
 			presets: [['@babel/preset-env', { modules: false }]],
 		}),
-		//production && terser()
+		terser()
 	]
 };

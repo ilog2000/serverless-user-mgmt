@@ -4,9 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "serve": "node index.js",
-    "start": "start http://localhost:5000 && yarn serve"
+    "build": "rollup -c"
   },
   "dependencies": {
     "aws-sdk": "^2.325.0",
@@ -17,9 +15,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
     "koa-jwt": "^3.5.1",
-    "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "koa-static": "^5.0.0",
     "serverless-http": "^1.6.0",
     "uuid": "^3.3.2"
   },
@@ -34,6 +30,7 @@
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-terser": "^3.0.0",
-    "serverless": "^1.32.0"
+    "serverless": "^1.32.0",
+    "serverless-offline": "^3.27.0"
   }
 }

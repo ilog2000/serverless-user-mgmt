@@ -1,8 +1,5 @@
 require('dotenv').config();
-const path = require('path');
 const Koa = require('koa');
-const serve = require('koa-static');
-const logger = require('koa-logger');
 const bodyParser = require('koa-bodyparser');
 const jwt = require('koa-jwt');
 const router = require('./routes');
@@ -51,19 +48,10 @@ app.use(async (ctx, next) => {
 		}
 	}
 });
-if (process.env.NODE_ENV !== 'production') {
-	app.use(logger());
-}
-app.use(serve(path.join(__dirname, '../public')));
 app.use(bodyParser());
 app.use(jwt({ secret: process.env.JWT_SECRET })
 	.unless({ path: [/^\/$/, /^\/public/, /^\/register/, /^\/login/, /^\/ping/] }));
 
 app.use(router);
-
-app.listen(process.env.PORT, (err) => {
-	if (err) console.log(err);
-	console.log(`The server is running on port ${process.env.PORT}`);
-});
 
 module.exports = app;

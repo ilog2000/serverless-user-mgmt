@@ -1,12 +1,6 @@
-.idea
-*.iml
-.DS_Store
+# package directories
 node_modules
-bin
-build
-dist
-*.log
-.env
-.eslintrc.*
-.vscode
-bak
+jspm_packages
+
+# Serverless directories
+.serverless
