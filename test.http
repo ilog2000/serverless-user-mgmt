@@ -1,0 +1,95 @@
+@baseURL = http://localhost:5000
+@email = darth.vader@gmail.com
+@password = anakin
+@id = fae0fb30-c6ec-11e8-9bd5-e358ca4b1f07
+
+
+### Ping
+GET {{baseURL}}/ping HTTP/1.1
+
+### Register
+POST {{baseURL}}/register HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+	"email":"han.solo@mail.com",
+	"password":"century hawk",
+	"first_name":"Han",
+	"last_name":"Solo"
+}
+
+### Login
+# @name login
+POST {{baseURL}}/login HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{"email":"{{email}}","password":"{{password}}"}
+
+### RefreshToken
+POST {{baseURL}}/refreshtoken HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+{}
+
+###
+
+
+@id2 = d564b990-c6f7-11e8-88fc-6b99c2dcbcfe
+
+### Users
+GET {{baseURL}}/api/v1/users HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+### User
+GET {{baseURL}}/api/v1/users/{{id2}} HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+### Create
+POST {{baseURL}}/api/v1/users HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+{
+	"id":"{{id2}}",
+	"email":"han.solo@mail.com",
+	"password":"century hawk",
+	"first_name":"Han",
+	"last_name":"Solo",
+	"role":"developer",
+	"picture":"han-solo.png",
+	"active":false
+}
+
+### Update
+PUT {{baseURL}}/api/v1/users/{{id2}} HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+{
+	"id":"{{id2}}",
+	"email":"han.solo@mail.com",
+	"password":"century hawk",
+	"first_name":"Han",
+	"last_name":"Solo",
+	"role":"developer",
+	"picture":"han-solo.png",
+	"active":true
+}
+
+### Delete
+DELETE {{baseURL}}/api/v1/users/{{id2}} HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+###

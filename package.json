@@ -1,0 +1,39 @@
+{
+  "name": "serverless-user-mgmt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "serve": "node index.js",
+    "start": "start http://localhost:5000 && yarn serve"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.325.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "koa": "^2.5.3",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa-jwt": "^3.5.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "serverless-http": "^1.6.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "eslint": "^5.6.1",
+    "mithril": "^1.1.6",
+    "rollup": "^0.66.4",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-css-only": "^0.4.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-terser": "^3.0.0",
+    "serverless": "^1.32.0"
+  }
+}
