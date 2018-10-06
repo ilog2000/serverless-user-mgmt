@@ -10,7 +10,7 @@ export default {
       const password = $("#password").value;
       m.request({
         method: "POST",
-        url: config.baseURL + "/login",
+        url: config.BASE_API_URL + "/login",
         data: { email, password },
         withCredentials: true,
       })

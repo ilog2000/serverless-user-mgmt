@@ -24,7 +24,7 @@ export default {
       };
       m.request({
         method: "POST",
-        url: config.baseURL + "/api/v1/users",
+        url: config.BASE_API_URL + "/api/v1/users",
         data: user,
         headers: { "Authorization": "Bearer " + token },
         withCredentials: true,

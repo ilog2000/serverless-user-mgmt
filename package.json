@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "serve": "sirv public",
+    "start": "start http://localhost:5000 && sirv public",
+    "dev": "sls offline start"
   },
   "dependencies": {
     "aws-sdk": "^2.325.0",
@@ -31,6 +34,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-terser": "^3.0.0",
     "serverless": "^1.32.0",
-    "serverless-offline": "^3.27.0"
+    "serverless-offline": "^3.27.0",
+    "sirv-cli": "^0.2.2"
   }
 }

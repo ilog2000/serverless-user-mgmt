@@ -7,7 +7,7 @@ const User = {
     const token = localStorage.getItem("__token");
     return m.request({
       method: "GET",
-      url: config.baseURL + "/api/v1/users",
+      url: config.BASE_API_URL + "/api/v1/users",
       headers: { "Authorization": "Bearer " + token },
       withCredentials: true
     })
@@ -24,7 +24,7 @@ const User = {
     const token = localStorage.getItem("__token");
     return m.request({
       method: "GET",
-      url: config.baseURL + "/api/v1/users/" + id,
+      url: config.BASE_API_URL + "/api/v1/users/" + id,
       headers: { "Authorization": "Bearer " + token },
       withCredentials: true
     })
@@ -39,7 +39,7 @@ const User = {
     const token = localStorage.getItem("__token");
     return m.request({
       method: "PUT",
-      url: config.baseURL + "/api/v1/users/:id",
+      url: config.BASE_API_URL + "/api/v1/users/:id",
       data: User.current,
       headers: { "Authorization": "Bearer " + token },
       withCredentials: true

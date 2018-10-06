@@ -11,7 +11,7 @@ function del(e) {
     const token = localStorage.getItem("__token");
     m.request({
       method: "DELETE",
-      url: config.baseURL + "/api/v1/users/" + id,
+      url: config.BASE_API_URL + "/api/v1/users/" + id,
       headers: { "Authorization": "Bearer " + token },
       withCredentials: true,
     })

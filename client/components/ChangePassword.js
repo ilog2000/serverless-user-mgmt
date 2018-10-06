@@ -17,7 +17,7 @@ export default {
       }
       m.request({
         method: "POST",
-        url: config.baseURL + "/changepassword",
+        url: config.BASE_API_URL + "/changepassword",
         data: { id, oldpassword, newpassword },
         headers: { "Authorization": "Bearer " + token },
         withCredentials: true,
