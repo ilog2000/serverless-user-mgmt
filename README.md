@@ -10,12 +10,13 @@ The technological stack:
 
 ## Running locally
 
-To start playing with it clone the repository and install node packages
+To start playing with it clone the repository and install node packages:
 ```
 git clone https://github.com/ilog2000/serverless-user-mgmt
+cd serverless-user-mgmt
 yarn
 ```
-To run it locally, you will need to set up a [local copy of DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html). Note, that it requres Java runtime to be available on your machine. After download, unzip an archive and execute the following command:
+To run it locally, you will need to set up a [local copy of DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html). Note, that it requres Java runtime to be available on your machine. After download, unzip an archive, and execute the following command:
 ```
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 ```
@@ -54,7 +55,7 @@ yarn s3-upload-objects
 yarn s3-configure-site
 ```
 
-The scripts create AWS Lambda function for API, DynamoDB storage, and static seb site locasted in S3 bucket.
+The scripts create AWS Lambda function for API, DynamoDB storage, and static seb site located in S3 bucket.
 
 ## TODO
 
