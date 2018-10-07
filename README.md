@@ -55,7 +55,7 @@ yarn s3-upload-objects
 yarn s3-configure-site
 ```
 
-The scripts create AWS Lambda function for API, DynamoDB storage, and static seb site located in S3 bucket.
+The scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
 
 ## TODO
 
