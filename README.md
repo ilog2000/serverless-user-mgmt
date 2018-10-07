@@ -1,6 +1,6 @@
 # serverless-user-mgmt
 
-This is a demo serverless application to run in AWS cloud infrastructure. It provides a simple web interface for user management.
+This is a demo project to show how to create and deploy a serverless application on AWS cloud. It provides a simple web interface for user management.
 
 The technological stack:
 * node.js
@@ -53,6 +53,8 @@ yarn s3-create-bucket
 yarn s3-upload-objects
 yarn s3-configure-site
 ```
+
+The scripts create AWS Lambda function for API, DynamoDB storage, and static seb site locasted in S3 bucket.
 
 ## TODO
 
