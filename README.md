@@ -10,7 +10,7 @@ The technological stack:
 
 ## Running locally
 
-To start playing with it clone the repository and install node
+To start playing with it clone the repository and install node packages
 ```
 git clone https://github.com/ilog2000/serverless-user-mgmt
 yarn
@@ -19,7 +19,7 @@ To run it locally, you will need to set up a [local copy of DynamoDB](https://do
 ```
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 ```
-Further steps are to execute scripts from package.json:
+Further steps are to execute scripts from package.json to create and fill in DynamoDB 'users' table:
 ```
 yarn dev-dynamodb-create
 yarn dev-dynamodb-populate
