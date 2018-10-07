@@ -64,8 +64,8 @@ Authorization: Bearer {{login.response.body.$.data.token}}
 	"password":"century hawk",
 	"first_name":"Han",
 	"last_name":"Solo",
-	"role":"developer",
-	"picture":"han-solo.png",
+	"role":"none",
+	"picture":"/img/unknown.png",
 	"active":false
 }
 
@@ -82,7 +82,7 @@ Authorization: Bearer {{login.response.body.$.data.token}}
 	"first_name":"Han",
 	"last_name":"Solo",
 	"role":"developer",
-	"picture":"han-solo.png",
+	"picture":"/img/han-solo.png",
 	"active":true
 }
 
