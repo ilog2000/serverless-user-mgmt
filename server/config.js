@@ -1,3 +1,5 @@
+// Back end configuration
+
 const env = process.env.NODE_ENV; // 'development' or 'production'
 
 const development = {
@@ -12,7 +14,7 @@ const development = {
 
 const production = {
 	app: {
-		imgURL: '/img'
+		imgURL: 'http://serverless-user-mgmt.s3-website.us-east-1.amazonaws.com'
 	},
 	aws: {
 		region: 'us-east-1',

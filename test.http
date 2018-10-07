@@ -1,4 +1,5 @@
-@baseURL = http://localhost:3000
+# @baseURL = http://localhost:3000
+@baseURL = https://qj9dphrpnf.execute-api.us-east-1.amazonaws.com/dev/
 @email = darth.vader@gmail.com
 @password = anakin
 @id = fae0fb30-c6ec-11e8-9bd5-e358ca4b1f07

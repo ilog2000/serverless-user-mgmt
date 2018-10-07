@@ -9,4 +9,5 @@ dist
 .env
 .eslintrc.*
 .vscode
+.serverless
 bak
