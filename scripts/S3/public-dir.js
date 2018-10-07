@@ -1,52 +1,44 @@
-const glob = require('glob');
 const fs = require('fs');
+const util = require('util');
+const glob = util.promisify(require('glob'));
+const readFile = util.promisify(fs.readFile);
 
-function getPublicFiles () {
-	return new Promise((resolve, reject) => {
-		glob('../../public/**/*.*', (err, files) => {
-			if (err) reject(err)
-			else {
-				const filePromises = files.map((file) => {
-					return new Promise((resolve, reject) => {
-						fs.readFile(file, (err, data) => {
-							if (err) reject(err)
-							else resolve(data)
-						})
-					})
-				})
-
-				Promise.all(filePromises)
-				.then((fileContents) => {
-					return fileContents.map((contents, i) => {
-						return {
-							contents,
-							name: files[i].replace('../../public/', '')
-						}
-					})
-				})
-				.then(resolve)
-				.catch(reject)
-			}
-		})
-	})
+async function getPublicFiles() {
+	const filePaths = await glob('../../public/**/*.*');
+	const filePromises = filePaths.map((filePath) => {
+		return readFile(filePath);
+	});
+	return Promise.all(filePromises)
+		.then((fileContents) => {
+			return fileContents.map((contents, i) => {
+				return {
+					contents,
+					name: filePaths[i].replace('../../public/', '')
+				}
+			})
+		});
 }
 
-function getContentType (filename) {
+function getContentType(filename) {
 	if (filename.match(/\.html/)) {
-		return 'text/html'
+		return 'text/html';
 	}
 	if (filename.match(/\.png/)) {
-		return 'image/png'
+		return 'image/png';
 	}
 	if (filename.match(/\.jpg/)) {
-		return 'image/jpeg'
+		return 'image/jpeg';
+	}
+	if (filename.match(/\.ico/)) {
+		return 'image/x-icon';
 	}
 	if (filename.match(/\.js/)) {
-		return 'text/javascript'
+		return 'text/javascript';
 	}
 	if (filename.match(/\.css/)) {
-		return 'text/css'
+		return 'text/css';
 	}
+	return 'text/plain';
 }
 
 module.exports = {

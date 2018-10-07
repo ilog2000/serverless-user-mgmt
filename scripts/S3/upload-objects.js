@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const config = require('../aws-config.js'); 
 const publicDir = require('./public-dir.js');
 
 AWS.config.update(config.aws_remote_config);
