@@ -34,7 +34,9 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:656168058398:table/users"
+      Resource:
+        - "arn:aws:dynamodb:us-east-1:656168058398:table/users"
+        - "arn:aws:dynamodb:us-east-1:656168058398:table/users/index/emailIndex"
 
 # you can overwrite defaults here
 #  stage: dev

@@ -20,6 +20,8 @@ To run it locally, you will need to set up a [local copy of DynamoDB](https://do
 ```
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 ```
+Now create `.env` file from `.env.example`.
+
 Further steps are to execute scripts from package.json to create and fill in DynamoDB 'users' table:
 ```
 yarn dev-dynamodb-create
@@ -33,7 +35,7 @@ In order to run the API back end, you can use the next script:
 ```
 yarn dev-lambda
 ```
-Behind the scene serverless-offline plugin is executed.
+Behind the scene `serverless-offline` plugin is executed.
 
 The following command will start a development server for the front end:
 ```
@@ -56,6 +58,8 @@ yarn s3-configure-site
 ```
 
 These scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
+
+_NOTE_: Do not forget to update your `.env` file with production settings.
 
 ## TODO
 
