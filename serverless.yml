@@ -23,7 +23,6 @@ provider:
   stage: dev
   region: us-east-1
   memorySize: 128
-  timeout: 20
 
 # you can overwrite defaults here
 #  stage: dev
