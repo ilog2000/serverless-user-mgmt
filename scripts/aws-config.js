@@ -4,8 +4,9 @@ module.exports = {
 		endpoint: 'http://localhost:8000'
 	},
 	aws_remote_config: {
-		accessKeyId: 'xxx',
-		secretAccessKey: 'xxx',
 		region: 'us-east-1',
+	},
+	s3_config: {
+		bucketName: 'serverless-user-mgmt'
 	}
 };

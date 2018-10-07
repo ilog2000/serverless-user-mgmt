@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const config = require('./config.js');
+const config = require('../aws-config.js');
 
 const isDev = process.env.NODE_ENV !== 'production';
 

@@ -7,7 +7,14 @@
     "build": "rollup -c",
     "serve": "sirv public",
     "start": "start http://localhost:5000 && sirv public",
-    "dev": "sls offline start"
+    "dev": "sls offline start",
+    "dev-dynamodb-create": "node ./scripts/DynamoDB/create-table.js",
+    "dev-dynamodb-populate": "node ./scripts/DynamoDB/populate-table.js",
+    "prod-dynamodb-create": "NODE_ENV=production&& node ./scripts/DynamoDB/create-table.js",
+    "prod-dynamodb-populate": "NODE_ENV=production&& node ./scripts/DynamoDB/populate-table.js",
+    "s3-create-bucket": "node ./scripts/S3/create-bucket.js",
+    "s3-upload-objects": "node ./scripts/S3/upload-objects.js",
+    "s3-configure-site": "node ./scripts/S3/configure-static-site.js"
   },
   "dependencies": {
     "aws-sdk": "^2.325.0",
