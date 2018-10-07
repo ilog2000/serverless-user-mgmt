@@ -10,8 +10,8 @@
     "dev": "sls offline start",
     "dev-dynamodb-create": "node ./scripts/DynamoDB/create-table.js",
     "dev-dynamodb-populate": "node ./scripts/DynamoDB/populate-table.js",
-    "prod-dynamodb-create": "NODE_ENV=production&& node ./scripts/DynamoDB/create-table.js",
-    "prod-dynamodb-populate": "NODE_ENV=production&& node ./scripts/DynamoDB/populate-table.js",
+    "prod-dynamodb-create": "cross-env NODE_ENV=production node ./scripts/DynamoDB/create-table.js",
+    "prod-dynamodb-populate": "cross-env NODE_ENV=production node ./scripts/DynamoDB/populate-table.js",
     "s3-create-bucket": "node ./scripts/S3/create-bucket.js",
     "s3-upload-objects": "node ./scripts/S3/upload-objects.js",
     "s3-configure-site": "node ./scripts/S3/configure-static-site.js"
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.6.1",
     "mithril": "^1.1.6",
     "rollup": "^0.66.4",
