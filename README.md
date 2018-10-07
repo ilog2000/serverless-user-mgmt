@@ -53,3 +53,9 @@ yarn s3-create-bucket
 yarn s3-upload-objects
 yarn s3-configure-site
 ```
+
+## TODO
+
+* Improve error handling, which is very basic now
+* Add script for setting up permissions for DynamoDB access from Lambda; as for now, this is done manually
+* Describe required operations in AWS console in details
