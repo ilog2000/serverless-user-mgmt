@@ -1,1 +1,55 @@
 # serverless-user-mgmt
+
+This is a demo serverless application to run in AWS cloud infrastructure. It provides a simple web interface for user management.
+
+The technological stack:
+* node.js
+* koa.js v2
+* serverless-http
+* DynamoDB
+
+## Running locally
+
+To start playing with it clone the repository and install node
+```
+git clone https://github.com/ilog2000/serverless-user-mgmt
+yarn
+```
+To run it locally, you will need to set up a [local copy of DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html). Note, that it requres Java runtime to be available on your machine. After download, unzip an archive and execute the following command:
+```
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+```
+Further steps are to execute scripts from package.json:
+```
+yarn dev-dynamodb-create
+yarn dev-dynamodb-populate
+```
+and to check the results:
+```
+yarn dev-dynamodb-query
+```
+In order to run the API back end, you can use the next script:
+```
+yarn dev-lambda
+```
+Behind the scene serverless-offline plugin is executed.
+
+The following command will start a development server for the front end:
+```
+yarn serve
+```
+The web application can be open on [localhost:5000](http://localhost:5000).
+
+## Deployment to AWS
+
+You can deploy to AWS with these commands:
+```
+yarn prod-lambda
+yarn prod-dynamodb-create
+yarn prod-dynamodb-populate
+yarn prod-dynamodb-delete
+yarn prod-dynamodb-query
+yarn s3-create-bucket
+yarn s3-upload-objects
+yarn s3-configure-site
+```
