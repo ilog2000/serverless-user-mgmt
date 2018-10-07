@@ -10,7 +10,7 @@ The technological stack:
 
 ## Running locally
 
-To start playing with it clone the repository and install node packages:
+To start playing with it, clone the repository and install node packages:
 ```
 git clone https://github.com/ilog2000/serverless-user-mgmt
 cd serverless-user-mgmt
@@ -25,7 +25,7 @@ Further steps are to execute scripts from package.json to create and fill in Dyn
 yarn dev-dynamodb-create
 yarn dev-dynamodb-populate
 ```
-and to check the results:
+... and to check the results:
 ```
 yarn dev-dynamodb-query
 ```
@@ -55,7 +55,7 @@ yarn s3-upload-objects
 yarn s3-configure-site
 ```
 
-The scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
+These scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
 
 ## TODO
 
