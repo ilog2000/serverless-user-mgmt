@@ -9,7 +9,7 @@ const User = {
       method: "GET",
       url: config.BASE_API_URL + "/api/v1/users",
       headers: { "Authorization": "Bearer " + token },
-      withCredentials: true
+      // withCredentials: true
     })
       .then((result) => {
         // console.log(JSON.stringify(result, null, 2));
@@ -26,7 +26,7 @@ const User = {
       method: "GET",
       url: config.BASE_API_URL + "/api/v1/users/" + id,
       headers: { "Authorization": "Bearer " + token },
-      withCredentials: true
+      // withCredentials: true
     })
       .then((result) => {
         // console.log(JSON.stringify(result, null, 2));
@@ -42,7 +42,7 @@ const User = {
       url: config.BASE_API_URL + "/api/v1/users/:id",
       data: User.current,
       headers: { "Authorization": "Bearer " + token },
-      withCredentials: true
+      // withCredentials: true
     })
       .then((result) => {
         console.log(JSON.stringify(result, null, 2));

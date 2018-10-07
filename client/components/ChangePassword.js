@@ -20,7 +20,7 @@ export default {
         url: config.BASE_API_URL + "/changepassword",
         data: { id, oldpassword, newpassword },
         headers: { "Authorization": "Bearer " + token },
-        withCredentials: true,
+        // withCredentials: true,
       })
         .then((result) => {
           if (result.status === "success") {

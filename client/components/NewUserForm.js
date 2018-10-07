@@ -27,7 +27,7 @@ export default {
         url: config.BASE_API_URL + "/api/v1/users",
         data: user,
         headers: { "Authorization": "Bearer " + token },
-        withCredentials: true,
+        // withCredentials: true,
       })
         .then((result) => {
           if (result.status === "success") {

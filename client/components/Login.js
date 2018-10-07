@@ -12,7 +12,7 @@ export default {
         method: "POST",
         url: config.BASE_API_URL + "/login",
         data: { email, password },
-        withCredentials: true,
+        // withCredentials: true,
       })
         .then((result) => {
           if (result.status === "success") {

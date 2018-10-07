@@ -7,7 +7,7 @@ import { terser } from 'rollup-plugin-terser';
 export default {
 	input: 'client/index.js',	
 	output: {
-		sourcemap: true,	
+		sourcemap: false,	
 		format: 'iife',
 		name: 'app',
 		file: 'public/bundle.js'
