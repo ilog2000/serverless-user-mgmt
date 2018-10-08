@@ -2,11 +2,16 @@
 
 This is a demo project to show how to create and deploy a serverless application on AWS cloud. It provides a simple web interface for user management.
 
-The technological stack:
+## The technological stack
+
+Back end:
 * node.js
 * koa.js v2
 * serverless-http
 * DynamoDB
+
+Front end:
+* mithril.js
 
 ## Running locally
 
@@ -45,6 +50,8 @@ The web application can be open on [localhost:5000](http://localhost:5000).
 
 ## Deployment to AWS
 
+_NOTE_: Do not forget to update your `.env` file with production settings.
+
 You can deploy to AWS with these commands:
 ```
 yarn prod-lambda
@@ -58,8 +65,6 @@ yarn s3-configure-site
 ```
 
 These scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
-
-_NOTE_: Do not forget to update your `.env` file with production settings.
 
 ## TODO
 
