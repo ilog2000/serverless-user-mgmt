@@ -19,7 +19,7 @@ export default {
         method: "POST",
         url: config.BASE_API_URL + "/changepassword",
         data: { id, oldpassword, newpassword },
-        headers: { "Authorization": "Bearer " + token },
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
         // withCredentials: true,
       })
         .then((result) => {

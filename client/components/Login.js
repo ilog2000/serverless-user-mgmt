@@ -12,6 +12,7 @@ export default {
         method: "POST",
         url: config.BASE_API_URL + "/login",
         data: { email, password },
+        headers: { "Content-Type": "application/json" },
         // withCredentials: true,
       })
         .then((result) => {

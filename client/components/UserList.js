@@ -12,7 +12,7 @@ function del(e) {
     m.request({
       method: "DELETE",
       url: config.BASE_API_URL + "/api/v1/users/" + id,
-      headers: { "Authorization": "Bearer " + token },
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
       // withCredentials: true,
     })
       .then((result) => {

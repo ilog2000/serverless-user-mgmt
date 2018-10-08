@@ -37,6 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "@koa/cors": "^2.2.2",
     "cross-env": "^5.2.0",
     "eslint": "^5.6.1",
     "glob": "^7.1.3",

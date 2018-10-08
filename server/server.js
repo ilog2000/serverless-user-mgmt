@@ -2,6 +2,7 @@ require('dotenv').config();
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const jwt = require('koa-jwt');
+// const cors = require('@koa/cors');
 const router = require('./routes');
 
 const app = new Koa();
@@ -48,6 +49,7 @@ app.use(async (ctx, next) => {
 		}
 	}
 });
+// app.use(cors({ origin: '*'}));
 app.use(bodyParser());
 app.use(jwt({ secret: process.env.JWT_SECRET })
 	.unless({ path: [/^\/$/, /^\/public/, /^\/register/, /^\/login/, /^\/ping/] }));

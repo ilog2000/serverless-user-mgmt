@@ -8,7 +8,7 @@ const User = {
     return m.request({
       method: "GET",
       url: config.BASE_API_URL + "/api/v1/users",
-      headers: { "Authorization": "Bearer " + token },
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
       // withCredentials: true
     })
       .then((result) => {
@@ -25,7 +25,7 @@ const User = {
     return m.request({
       method: "GET",
       url: config.BASE_API_URL + "/api/v1/users/" + id,
-      headers: { "Authorization": "Bearer " + token },
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
       // withCredentials: true
     })
       .then((result) => {
@@ -41,7 +41,7 @@ const User = {
       method: "PUT",
       url: config.BASE_API_URL + "/api/v1/users/:id",
       data: User.current,
-      headers: { "Authorization": "Bearer " + token },
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
       // withCredentials: true
     })
       .then((result) => {
