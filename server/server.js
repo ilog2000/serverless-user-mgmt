@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
-const logger = require('koa-logger');
+// const logger = require('koa-logger');
 const jwt = require('koa-jwt');
 const cors = require('@koa/cors');
 const compose = require('koa-compose');
@@ -13,7 +13,7 @@ const app = new Koa();
 
 app.use(
 	compose([
-		logger(),
+		// logger(),
 		errorHandler,
 		cors({ origin: '*' }),
 		bodyParser(),
