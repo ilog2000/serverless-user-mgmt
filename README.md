@@ -66,8 +66,9 @@ yarn s3-configure-site
 
 These scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
 
+You will need a very convenient [REST Client plugin for Visual Studio Code](https://github.com/Huachao/vscode-restclient) to use `test.http` file, which contains descriptors of HTTP requests to API.
+
 ## TODO
 
 * Improve error handling, which is very basic now
-* Add script for setting up permissions for DynamoDB access from Lambda; as for now, this is done manually
 * Describe required operations in AWS console in details
