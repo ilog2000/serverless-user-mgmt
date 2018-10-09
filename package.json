@@ -7,6 +7,7 @@
     "build": "rollup -c",
     "serve": "sirv public",
     "start": "start http://localhost:5000 && sirv public",
+    "dev-server": "node ./server/server.js",
     "dev-lambda": "sls offline start",
     "prod-lambda": "sls deploy -v",
     "dev-dynamodb-create": "node ./scripts/DynamoDB/create-table.js",
