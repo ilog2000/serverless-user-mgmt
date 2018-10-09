@@ -75,14 +75,10 @@ functions:
   app:
     handler: handler.handle
     events:
-      - http:
-          path: /
-          method: ANY
-          cors: true
-      - http:
-          path: /{proxy+}
-          method: ANY
-          cors: true
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+    cors:
+      origin: '*'
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
