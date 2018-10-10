@@ -3,7 +3,8 @@
     "browser": true,
     "node": true,
     "commonjs": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "parserOptions": {
     "sourceType": "module",
@@ -11,6 +12,12 @@
   },
   "extends": "eslint:recommended",
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "should|expect"
+      }
+    ]
   }
 }
