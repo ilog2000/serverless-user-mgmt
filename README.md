@@ -1,3 +1,9 @@
+# UPDATE
+
+**This code is a good example of serverless anti-pattern. It works, I managed to solve problems with CORS, but the whole approach is wrong. Use of koa.js server adds unnecessary latency to AWS Lambda cold start. A proper way is to create separate handlers for each endpoint, and configure them in AWS API Gateway.**
+
+---
+
 # serverless-user-mgmt
 
 This is a demo project to show how to create and deploy a serverless application on AWS cloud. It provides a simple web interface for user management.
