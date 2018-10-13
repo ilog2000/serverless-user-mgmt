@@ -1,6 +1,6 @@
 # UPDATE
 
-**This code is a good example of serverless anti-pattern. It works, I managed to solve problems with CORS, but the whole approach is wrong. Use of koa.js server adds unnecessary latency to AWS Lambda cold start. A proper way is to create separate handlers for each endpoint, and configure them in AWS API Gateway.**
+**This code is a good example of serverless anti-pattern. It works, I managed to solve problems with CORS, but the whole approach is wrong. Use of koa.js server adds unnecessary latency to AWS Lambda cold start. A proper way is to create separate handlers for each endpoint, and configure them in AWS API Gateway. See the improved version [here](https://github.com/ilog2000/serverless-user-mgmt-2)**
 
 ---
 
@@ -46,9 +46,9 @@ In order to run the API back end, you can use the next script:
 ```
 yarn dev-lambda
 ```
-Behind the scene `serverless-offline` plugin is executed.
+The `serverless-offline` plugin is executed behind the scene.
 
-The following command will start a development server for the front end:
+The following command will start a development server for the front end (just ensure that `client/config.js` BASE_API_URL points to `http://localhost:3000`; if not - modify and run `yarn build` to re-build front end distribution):
 ```
 yarn serve
 ```
@@ -73,8 +73,3 @@ yarn s3-configure-site
 These scripts create AWS Lambda function for API, DynamoDB storage, and static web site located in S3 bucket.
 
 You will need a very convenient [REST Client plugin for Visual Studio Code](https://github.com/Huachao/vscode-restclient) to use `test.http` file, which contains descriptors of HTTP requests to API.
-
-## TODO
-
-* Improve error handling, which is very basic now
-* Describe required operations in AWS console in details
