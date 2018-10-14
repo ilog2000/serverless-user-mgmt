@@ -7,12 +7,12 @@ function statusSuccess(ctx, data) {
 	};
 }
 
-function statusError(ctx, status, err) {
+function statusError(ctx, status, message) {
 	ctx.status = status;
 	ctx.body = {
 		status: 'error',
 		statusCode: status,
-		message: err.message
+		message: message
 	};
 }
 
