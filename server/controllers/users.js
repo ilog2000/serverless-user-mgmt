@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const Repository = require('../db/repository.js');
 const config = require('../config.js');
-const { statusSuccess, statusError } = require('../helpers/set-status.js');
+const { statusSuccess } = require('../helpers/set-status.js');
 
 const repo = new Repository('users');
 
@@ -9,90 +9,68 @@ module.exports = {
 
 	async getUsers(ctx) {
 		if (!ctx.user || !ctx.user.permissions.includes('R')) {
-			ctx.throw(403, 'Forbidden\n');
+			ctx.throw(403, 'Forbidden');
 		}
 
-		try {
-			const result = await repo.getAll();
-			statusSuccess(ctx, result);
-		} catch (err) {
-			statusError(ctx, 500, err);
-		}
+		const result = await repo.getAll();
+		statusSuccess(ctx, result);
 	},
 
 	async getUser(ctx) {
 		if (!ctx.user || !ctx.user.permissions.includes('R')) {
-			ctx.throw(403, 'Forbidden\n');
+			ctx.throw(403, 'Forbidden');
 		}
 
 		const { id } = ctx.params;
 
-		try {
-			const result = await repo.getById(id);
-			statusSuccess(ctx, result);
-		} catch (err) {
-			statusError(ctx, 500, err);
-		}
+		const result = await repo.getById(id);
+		statusSuccess(ctx, result);
 	},
 
 	async postUser(ctx) {
 		if (!ctx.user || !ctx.user.permissions.includes('C')) {
-			ctx.throw(403, 'Forbidden\n');
+			ctx.throw(403, 'Forbidden');
 		}
 
 		const user = ctx.request.body;
 
-		try {
-			const salt = bcrypt.genSaltSync();
-			const hash = bcrypt.hashSync(user.password, salt);
-			user.password_hash = hash;
-			delete user.password;
-			user.picture = `${config.app.imgURL}/${user.picture}`;
+		const salt = bcrypt.genSaltSync();
+		const hash = bcrypt.hashSync(user.password, salt);
+		user.password_hash = hash;
+		delete user.password;
+		user.picture = `${config.app.imgURL}/${user.picture}`;
 
-			const result = await repo.put(user);
-			statusSuccess(ctx, result);
-		}
-		catch (err) {
-			statusError(ctx, 500, err);
-		}
+		const result = await repo.put(user);
+		statusSuccess(ctx, result);
 	},
 
 	async putUser(ctx) {
 		const { id } = ctx.params;
 
 		if (!ctx.user || (!ctx.user.permissions.includes('U') && ctx.user.id !== id)) {
-			ctx.throw(403, 'Forbidden\n');
+			ctx.throw(403, 'Forbidden');
 		}
 
 		const { body } = ctx.request;
 		const user = body;
 
-		try {
-			const expression = 'set picture = :picture, #role = :role, active = :active';
-			const values = { ':picture': user.picture, ':role': user.role, ':active': user.active };
-			const names = { '#role': 'role' };
-			const result = await repo.update(id, expression, values, names);
-			statusSuccess(ctx, result);
-		}
-		catch (err) {
-			statusError(ctx, 500, err);
-		}
+		const expression = 'set picture = :picture, #role = :role, active = :active';
+		const values = { ':picture': user.picture, ':role': user.role, ':active': user.active };
+		const names = { '#role': 'role' };
+
+		const result = await repo.update(id, expression, values, names);
+		statusSuccess(ctx, result);
 	},
 
 	async deleteUser(ctx) {
 		if (!ctx.user || !ctx.user.permissions.includes('D')) {
-			ctx.throw(403, 'Forbidden\n');
+			ctx.throw(403, 'Forbidden');
 		}
 
 		const { id } = ctx.params;
 
-		try {
-			const result = await repo.delete(id);
-			statusSuccess(ctx, result);
-		}
-		catch (err) {
-			statusError(ctx, 500, err);
-		}
+		const result = await repo.delete(id);
+		statusSuccess(ctx, result);
 	}
 
 }

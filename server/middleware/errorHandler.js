@@ -3,7 +3,7 @@ async function errorHandler(ctx, next) {
     await next();
     if (ctx.status === 404) ctx.throw(404);
   } catch (err) {
-    ctx.status = err.statusCode || err.status || 500;
+    ctx.status = err.statusCode || err.status || 501; // 501 Not Implemented
     if (ctx.status === 204) return;
     ctx.body = {
       status: 'error',
