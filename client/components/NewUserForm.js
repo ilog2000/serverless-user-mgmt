@@ -23,26 +23,22 @@ export default {
         active: $("#active").checked,
       };
       m.request({
-        method: "POST",
-        url: config.BASE_API_URL + "/api/v1/users",
+        method: 'POST',
+        url: config.BASE_API_URL + '/api/v1/users',
         data: user,
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Authorization": "Bearer " + token
-        },
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + token
+        }
         // withCredentials: true,
       })
-        .then((result) => {
-          if (result.status === "success") {
-            m.route.set("/list", {});
-          }
-          else {
-            showError("ERROR: " + result.message);
-          }
+        .then(() => {
+          m.route.set('/list', {});
         })
-        .catch((err) => { console.log(err) });
-      return false;
+        .catch(err => {
+          showError('ERROR: ' + err.message);
+        });
     }
   },
   view: (vnode) => {

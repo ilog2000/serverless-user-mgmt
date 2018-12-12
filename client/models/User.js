@@ -17,7 +17,7 @@ const User = {
     })
       .then((result) => {
         // console.log(JSON.stringify(result, null, 2));
-        User.list = result.data.Items;
+        User.list = result.Items;
       })
       .catch((err) => { console.log(err) });
   },
@@ -38,7 +38,7 @@ const User = {
     })
       .then((result) => {
         // console.log(JSON.stringify(result, null, 2));
-        User.current = result.data.Item;
+        User.current = result.Item;
       })
       .catch((err) => { console.log(err) });
   },

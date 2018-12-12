@@ -16,25 +16,21 @@ export default {
         return false;
       }
       m.request({
-        method: "POST",
-        url: config.BASE_API_URL + "/changepassword",
+        method: 'POST',
+        url: config.BASE_API_URL + '/changepassword',
         data: { id, oldpassword, newpassword },
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Authorization": "Bearer " + token
-        },
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + token
+        }
         // withCredentials: true,
       })
-        .then((result) => {
-          if (result.status === "success") {
-            m.route.set("/list", {});
-          } else {
-            showError("ERROR: " + result.message);
-          }
+        .then(() => {
+          m.route.set('/list', {});
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(err => {
+          showError('ERROR: ' + err.message);
         });
       return false;
     }

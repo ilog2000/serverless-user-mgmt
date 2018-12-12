@@ -19,15 +19,12 @@ function del(e) {
       },
       // withCredentials: true,
     })
-      .then((result) => {
-        // console.log(JSON.stringify(result, null, 2));
-        if (result.status === "success") {
-          window.location.reload();
-        } else {
-          showError("ERROR: " + result.message);
-        }
+      .then(() => {
+        window.location.reload();
       })
-      .catch((err) => { console.log(err) });
+      .catch((err) => {
+        showError("ERROR: " + err.message);
+      });
   }
   return false;
 }

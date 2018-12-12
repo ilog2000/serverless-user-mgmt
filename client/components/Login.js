@@ -19,15 +19,12 @@ export default {
         // withCredentials: true,
       })
         .then((result) => {
-          if (result.status === "success") {
-            localStorage.setItem("__token", result.data.token);
+            localStorage.setItem("__token", result.token);
             m.route.set("/list", {});
-          }
-          else {
-            showError("ERROR: " + result.message);
-          }
         })
-        .catch((err) => { console.log(err) });
+        .catch((err) => {
+          showError("ERROR: " + err.message);
+        });
       return false;
     }
   },
