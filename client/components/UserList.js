@@ -26,12 +26,14 @@ function del(e) {
         showError("ERROR: " + err.message);
       });
   }
-  return false;
 }
 
 export default {
-  oninit: User.loadList,
-  view: () => {
+  oninit: (vnode) => {
+    User.loadList();
+    vnode.state.email = localStorage.getItem("__email");
+  },
+  view: (vnode) => {
     return m("div", [
       m("div", m("a.btn.btn-secondary", { href: "/newuser/", oncreate: m.route.link }, "New user")),
       m("br"),
@@ -52,7 +54,7 @@ export default {
             m("td", user.first_name),
             m("td", user.last_name),
             m("td", m("a", { href: "/edit/" + user.id, oncreate: m.route.link }, "Edit")),
-            m("td", m("a", { href: "/changepassword/" + user.id, oncreate: m.route.link }, "Change password")),
+            m("td", m("a", { href: "/changepassword/" + user.id, oncreate: m.route.link, class: vnode.state.email !== user.email ? "disabled" : "" }, "Change password")),
             m("td", m("a", { href: "/delete/" + user.id, onclick: del }, "Delete")),
           ]);
         }))

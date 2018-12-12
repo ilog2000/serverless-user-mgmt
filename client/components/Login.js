@@ -19,13 +19,13 @@ export default {
         // withCredentials: true,
       })
         .then((result) => {
-            localStorage.setItem("__token", result.token);
-            m.route.set("/list", {});
+          localStorage.setItem("__email", email);
+          localStorage.setItem("__token", result.token);
+          m.route.set("/list", {});
         })
         .catch((err) => {
           showError("ERROR: " + err.message);
         });
-      return false;
     }
   },
   view: (vnode) => {

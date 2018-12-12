@@ -16,7 +16,6 @@ const User = {
       // withCredentials: true
     })
       .then((result) => {
-        // console.log(JSON.stringify(result, null, 2));
         User.list = result.Items;
       })
       .catch((err) => { console.log(err) });
@@ -37,7 +36,6 @@ const User = {
       // withCredentials: true
     })
       .then((result) => {
-        // console.log(JSON.stringify(result, null, 2));
         User.current = result.Item;
       })
       .catch((err) => { console.log(err) });

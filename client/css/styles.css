@@ -1,3 +1,4 @@
 body { margin: 0; font: normal 16px Verdana; }
 .vspace { min-height: 4em; }
 .err { display: none; color: red; min-height: 2em; }
+a.disabled { pointer-events: none; cursor: default; color: gray; }

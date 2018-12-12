@@ -5,6 +5,7 @@ export default {
     vnode.logout = (e) => {
       e.preventDefault();
       localStorage.removeItem("__token");
+      localStorage.removeItem("__email");
       m.route.set("/login", {});
       return false;
     }
