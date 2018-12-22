@@ -1,40 +1,40 @@
-import "./css/styles.css";
+import './css/styles.css';
 
-import m from "mithril";
+import m from 'mithril';
 
-import Layout from "./components/Layout.js";
-import Login from "./components/Login.js";
-import UserList from "./components/UserList.js";
-import UserForm from "./components/UserForm.js";
-import ChangePassword from "./components/ChangePassword.js";
-import NewUserForm from "./components/NewUserForm.js";
+import Layout from './components/Layout.js';
+import Login from './components/Login.js';
+import UserList from './components/UserList.js';
+import UserForm from './components/UserForm.js';
+import ChangePassword from './components/ChangePassword.js';
+import NewUserForm from './components/NewUserForm.js';
 
-// m.render(document.body, "Hello world!!!");
+// m.render(document.body, 'Hello world!');
 // m.mount(document.body, Login);
-m.route(document.body, "/login", {
-  "/login": {
+m.route(document.body, '/login', {
+  '/login': {
     render: () => {
       return m(Login);
-    }
+    },
   },
-  "/list": {
+  '/list': {
     render: () => {
       return m(Layout, m(UserList));
-    }
+    },
   },
-  "/edit/:id": {
+  '/edit/:id': {
     render: () => {
       return m(Layout, m(UserForm));
-    }
+    },
   },
-  "/newuser/": {
+  '/newuser/': {
     render: () => {
       return m(Layout, m(NewUserForm));
-    }
+    },
   },
-  "/changepassword/:id": {
+  '/changepassword/:id': {
     render: () => {
       return m(Layout, m(ChangePassword));
-    }
+    },
   },
 });
